@@ -59,7 +59,7 @@
 				"Runtime": "nodejs8.10",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplifyreactapp-dev-20190909103321-deployment",
+					"S3Bucket": "amplifyreactapp-predtest-20190909173321-deployment",
 					"S3Key": "amplify-builds/S3Trigger3d4c8975-4c424649654373393063-build.zip"
 				}
 			}

@@ -1,6 +1,6 @@
 projects:
   CryptoGraphQL:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/CryptoGraphQL/build/schema.graphql
     includes:
       - src/graphql/**/*.js
     excludes:

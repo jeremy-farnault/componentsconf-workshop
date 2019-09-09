@@ -16,6 +16,7 @@
     "amp-configure": "amplify configure",
     "amp-console": "amplify console api",
     "amp-init": "amplify init",
+    "amp-mock": "amplify mock api",
     "amp-push": "amplify push",
     "amp-status": "amplify status",
     "build": "react-scripts build",

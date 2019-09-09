@@ -12,12 +12,15 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "amp-add": "amplify add auth",
+    "amp-configure": "amplify configure",
+    "amp-init": "amplify init",
+    "amp-push": "amplify push",
+    "amp-status": "amplify status",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "amplify-configure": "amplify configure",
-    "amplify-init": "amplify init"
+    "start": "react-scripts start",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

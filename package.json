@@ -15,6 +15,7 @@
     "amp-add": "amplify add analytics",
     "amp-configure": "amplify configure api",
     "amp-console": "amplify console api",
+    "amp-env": "amplify env list",
     "amp-func": "amplify function invoke cryptofunction",
     "amp-init": "amplify init",
     "amp-mock": "amplify mock api",

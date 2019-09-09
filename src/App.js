@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useReducer } from "react";
-import { API } from "aws-amplify";
-import { withAuthenticator } from "aws-amplify-react";
+import { API, Auth } from "aws-amplify";
+import { withAuthenticator, S3Album } from "aws-amplify-react";
+import { Storage, Analytics } from "aws-amplify";
 
 const initialState = {
   coins: [],
@@ -20,10 +21,36 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [name, setName] = useState("");
+  const [imageUrl, updateImage] = useState("");
+
+  async function fetchImage() {
+    const imagePath = await Storage.get("face.png");
+    updateImage(imagePath);
+  }
 
   useEffect(() => {
     getData();
   }, []);
+
+  const getUser = async () => {
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      setName(user.username)
+    } catch (err) {
+      console.log("error getting user: ", err);
+    }
+  };
+  getUser();
+
+  const recordEvent = () => {
+    Analytics.record({
+      name: "My test event",
+      attributes: {
+        username: name
+      }
+    });
+  };
 
   async function getData() {
     try {
@@ -41,8 +68,35 @@ function App() {
     getData();
   }, []);
 
+  async function addToStorage() {
+    await Storage.put(
+      "javascript/MyReactComponent.js",
+      `
+    import React from 'react'
+    const App = () => (
+      <p>Hello World</p>
+    )
+    export default App
+  `
+    );
+    console.log("data stored in S3!");
+  }
+
+  async function storeImage(e) {
+    const file = e.target.files[0];
+    await Storage.put("face.png", file);
+    console.log("image successfully stored!");
+  }
+
   return (
     <>
+      <button onClick={recordEvent}>Record Event</button>
+      <button onClick={addToStorage}>Add To Storage</button>
+      <input type="file" accept="image" onChange={e => storeImage(e)} />
+      <div>
+        <img src={imageUrl} />
+        <button onClick={fetchImage}>Fetch Image</button>
+      </div>
       {state.isLoading ? (
         <div>Loading</div>
       ) : (
@@ -55,6 +109,9 @@ function App() {
           ))}
         </div>
       )}
+      {/*<div>*/}
+      {/*  <S3Album path={""} picker />*/}
+      {/*</div>*/}
     </>
   );
 }

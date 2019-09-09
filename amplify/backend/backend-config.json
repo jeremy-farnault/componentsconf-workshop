@@ -39,6 +39,34 @@
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"S3Trigger3d4c8975": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	},
+	"storage": {
+		"COMPONENTSCONFAPI": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "S3Trigger3d4c8975",
+					"attributes": [
+						"Name",
+						"Arn",
+						"LambdaExecutionRole"
+					]
+				}
+			]
+		}
+	},
+	"analytics": {
+		"amplifyanalytics": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }

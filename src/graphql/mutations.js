@@ -31,3 +31,30 @@ export const deleteCoin = `mutation DeleteCoin($input: DeleteCoinInput!) {
   }
 }
 `;
+export const createNote = `mutation CreateNote($input: CreateNoteInput!) {
+  createNote(input: $input) {
+    id
+    title
+    description
+    owner
+  }
+}
+`;
+export const updateNote = `mutation UpdateNote($input: UpdateNoteInput!) {
+  updateNote(input: $input) {
+    id
+    title
+    description
+    owner
+  }
+}
+`;
+export const deleteNote = `mutation DeleteNote($input: DeleteNoteInput!) {
+  deleteNote(input: $input) {
+    id
+    title
+    description
+    owner
+  }
+}
+`;

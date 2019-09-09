@@ -12,9 +12,10 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "amp-add": "amplify add api",
-    "amp-configure": "amplify configure",
+    "amp-add": "amplify add function",
+    "amp-configure": "amplify configure api",
     "amp-console": "amplify console api",
+    "amp-func": "amplify function invoke cryptofunction",
     "amp-init": "amplify init",
     "amp-mock": "amplify mock api",
     "amp-push": "amplify push",

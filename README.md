@@ -35,3 +35,20 @@ query listCoins {
     }
   }
 }
+
+mutation createNote {
+  createNote(input: {
+    title: "Note"
+    description: "Note desc"
+  }) {
+    id title description
+  }
+}
+
+query listNotes {
+  listNotes {
+    items {
+      id title description
+    }
+  }
+}

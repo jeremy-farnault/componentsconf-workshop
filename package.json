@@ -12,8 +12,9 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "amp-add": "amplify add auth",
+    "amp-add": "amplify add api",
     "amp-configure": "amplify configure",
+    "amp-console": "amplify console api",
     "amp-init": "amplify init",
     "amp-push": "amplify push",
     "amp-status": "amplify status",

@@ -6,13 +6,14 @@
     "@aws-amplify/cli": "^3.0.0",
     "aws-amplify": "^1.1.38",
     "aws-amplify-react": "^2.4.2",
+    "microphone-stream": "^5.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "amp-add": "amplify add analytics",
+    "amp-add": "amplify add predictions",
     "amp-configure": "amplify configure api",
     "amp-console": "amplify console api",
     "amp-env": "amplify env list",
